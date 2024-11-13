@@ -1,14 +1,21 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Caesar_Cipher {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        Scanner scan = new Scanner(System.in);
 
-        caesar("cat", 23);
+        System.out.print("Input the String you want encrypted: ");
+        String cipher = scan.nextLine();
+
+        System.out.println(caesar(cipher, 23));
+
         // A = 65
         // Z = 90
         // a = 97
         // z = 122
+
+        scan.close();
     }
 
     /**
@@ -68,7 +75,6 @@ public class Caesar_Cipher {
      * @return Returns the decrypted cipher
      */
     public static String decryptCipher(String encryptedCipher, int shift) {
-
         return null;
     }
 }

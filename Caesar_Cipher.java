@@ -4,7 +4,7 @@ public class Caesar_Cipher {
     public static void main(String[] args) {
         System.out.println("Hello World");
 
-        caesar(null, 0);
+        caesar(null, 3);
         // A = 65
         // Z = 90
         // a = 97
@@ -23,10 +23,29 @@ public class Caesar_Cipher {
         HashMap<Character, Character> legend = new HashMap<Character, Character>();
 
         // Actually make the shift
-        for (char upperCase = 'A', lowerCase = 'a'; upperCase != 'Z'; upperCase++, lowerCase++) {
+        for (Character upperCase = 'A', lowerCase = 'a'; upperCase != 'Z'; upperCase++, lowerCase++) {
+
             int upperShift = (int) upperCase - key;
             int lowerShift = (int) lowerCase - key;
+
+            // These if statements make sure that when the letters go "below" A or a they go
+            // back to Z or z.
+
+            if ((int) upperShift < 65) {
+                upperShift += 26;
+            }
+
+            if ((int) lowerShift < 97) {
+                lowerShift += 26;
+            }
+
+            legend.put(upperCase, (char) upperShift);
+            legend.put(lowerCase, (char) lowerShift);
         }
+
+        System.out.println(legend.keySet());
+        System.out.println(legend.values());
+
         return null;
     }
 }

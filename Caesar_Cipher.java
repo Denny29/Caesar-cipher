@@ -31,7 +31,7 @@ public class Caesar_Cipher {
         HashMap<Character, Character> legend = new HashMap<Character, Character>();
 
         // Fill the hashmap with the right keys.
-        for (Character upperCase = 'A', lowerCase = 'a'; upperCase != 'Z'; upperCase++, lowerCase++) {
+        for (Character upperCase = 'A', lowerCase = 'a'; upperCase != (char) 91; upperCase++, lowerCase++) {
 
             int upperShift = (int) upperCase + key;
             int lowerShift = (int) lowerCase + key;
@@ -53,9 +53,9 @@ public class Caesar_Cipher {
         char[] charArray = cipher.toCharArray();
         String encryptedCipher = "";
         // Iterate over the charArray using the legend to shift it
-        for (char c : charArray) {
-            if (c == ' ') {
-                encryptedCipher += " ";
+        for (Character c : charArray) {
+            if (!Character.isLetter(c)) {
+                encryptedCipher += c;
             } else {
                 encryptedCipher += legend.get(c);
             }

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Caesar_Cipher {
@@ -13,11 +12,12 @@ public class Caesar_Cipher {
     }
 
     /**
-     * Returns a String with each character shifted {key} times to the left
+     * Returns a String with each character shifted {key} times to the right
      * EX: caesar("cat", 23) will return "Zxq"
      * 
      * @param cipher The cipher to be encrypted
      * @param key    The number of times each character is shifted
+     * @return Returns the encrypted cipher
      */
     public static String caesar(String cipher, int key) {
         // Make a hashmap containing what each character should be
@@ -29,8 +29,7 @@ public class Caesar_Cipher {
             int upperShift = (int) upperCase + key;
             int lowerShift = (int) lowerCase + key;
 
-            // These if statements make sure that when the letters go "below" A or a they go
-            // back to Z or z.
+            // If statements ensure the chars dont go over Z or z
 
             if ((int) upperShift > 90) {
                 upperShift -= 26;
@@ -54,7 +53,22 @@ public class Caesar_Cipher {
                 encryptedCipher += legend.get(c);
             }
         }
-        System.out.println(encryptedCipher);
+
+        return encryptedCipher;
+    }
+
+    /**
+     * Decrypts the encrypted cipher
+     * This is done by shifting to the right (26 - original key) times... At least I
+     * think
+     * 
+     * @param encryptedCipher The cipher encrypted using the caesar() method
+     * @param shift           The number of times each character is shifted to the
+     *                        right
+     * @return Returns the decrypted cipher
+     */
+    public static String decryptCipher(String encryptedCipher, int shift) {
+
         return null;
     }
 }
